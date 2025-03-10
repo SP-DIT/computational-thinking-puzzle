@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <div id="root">
+            <div id="map">
+                <div id="grid"></div>
+                <template id="cell-template">
+                    <div class="cell"></div>
+                </template>
+            </div>
+            <div id="inputs"></div>
+            <template id="input-row-template">
+                <div>
+                    <p class="input-row-label"></p>
+                    <div class="input-row"></div>
+                </div>
+            </template>
+            <template id="input-cell-template">
+                <div class="input-cell"></div>
+            </template>
+            <div id="options">
+                <div id="options-row"></div>
+                <template id="option-template">
+                    <div class="option"></div>
+                </template>
+            </div>
+            <div id="controls">
+                <button id="run">Run</button>
+                <button id="pause">Pause</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+    </body>
+    <style>
+        #root {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #map {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+        }
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            width: 100%;
+            height: 100%;
+        }
+        .cell {
+            border: 1px solid black;
+            width: 100%;
+            height: 100%;
+        }
+        .cell.wall {
+            background-color: black;
+        }
+        .robot {
+            background-image: url('./assets/dog-terrier-svgrepo-com.svg');
+            background-size: cover;
+        }
+        .robot.up {
+            transform: rotate(270deg);
+        }
+        .robot.right {
+            transform: rotate(0deg);
+        }
+        .robot.down {
+            transform: rotate(90deg);
+        }
+        .robot.left {
+            transform: scale(-1, 1) rotate(0deg);
+        }
+        .goal {
+            background-image: url('./assets/burger-svgrepo-com.svg');
+            background-size: cover;
+        }
+        .robot.goal {
+            background-image: url('./assets/dog-terrier-svgrepo-com.svg');
+            background-color: green;
+        }
+        .goal.robot.error {
+            background-image: url('./assets/dog-terrier-svgrepo-com.svg');
+            background-color: red;
+        }
+
+        #inputs {
+            display: flex;
+            flex-direction: column;
+            padding: 1px;
+            margin-top: 20px;
+        }
+        .input-row {
+            display: flex;
+        }
+        .input-cell {
+            border: 1px solid black;
+            width: 38px;
+            height: 38px;
+        }
+
+        #options {
+            display: flex;
+            flex-direction: column;
+            padding: 1px;
+            margin-top: 20px;
+        }
+        #options-row {
+            display: flex;
+        }
+        .option {
+            border: 1px solid black;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        #controls {
+            margin-top: 20px;
+        }
+    </style>
+    <script src="index.mjs" type="module"></script>
+</html>
