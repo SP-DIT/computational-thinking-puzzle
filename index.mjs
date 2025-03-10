@@ -88,4 +88,4 @@ function generateLevel(levelNumber) {
     drawMap(level);
 }
 
-generateLevel(2);
+generateLevel(0);
